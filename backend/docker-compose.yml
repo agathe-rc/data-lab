@@ -1,7 +1,11 @@
-version: "3.9"
 services:
-  app:
+  api:
     build:
       context: .
+    environment:
+      - SQLITE_PATH=/sqlite.db
     ports:
       - "8000:80"
+    volumes:
+      - ./sqlite.db:/app/sqlite.db
+      - ./tests:/app/tests
