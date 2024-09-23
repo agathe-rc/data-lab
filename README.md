@@ -54,6 +54,7 @@ Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 - [ ] Implement error handling
 - [ ] Set environment variables in a file instead of hard-coded variables
 - [ ] Set pre-commit hooks for code formatting, type checking, env variables checking
+- [ ] Common docker-compose to run full project (add Dockerfile for front-end app)
 
 ### Back-end
 - [ ] Set unicity constraints in database models
