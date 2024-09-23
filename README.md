@@ -31,7 +31,8 @@ docker-compose run api python -m pytest
 ````
 
 ### Front-end
-Prerequisites: Node v16, 
+Created with `create-react-app`<br>
+Prerequisites: Node 16, npm 8.19
 
 - Enter the front-end directory
 ````
@@ -52,12 +53,13 @@ Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 - [ ] Write unit tests and e2e tests
 - [ ] Implement error handling
 - [ ] Set environment variables in a file instead of hard-coded variables
-- [ ] Set pre-commit hooks for code formatting, env variables checking
+- [ ] Set pre-commit hooks for code formatting, type checking, env variables checking
 
 ### Back-end
 - [ ] Set unicity constraints in database models
 - [ ] Create configuration file to access environment variables
-- [ ] Create a database manager implementing database connection, session creation
+- [ ] Extract database queries from API endpoints
+    - [ ] Create a database manager implementing database connection, session creation, query methods
 
 ### Front-end
 - [ ] Add TypeScript

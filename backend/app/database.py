@@ -1,9 +1,6 @@
 from sqlalchemy.ext.asyncio import async_sessionmaker
-from sqlalchemy.ext.asyncio import AsyncAttrs
 from sqlalchemy.ext.asyncio import create_async_engine
 from sqlalchemy.orm import Session
-
-from app.projects.models import Base
 
 
 sqlite_url = 'sqlite+aiosqlite:///sqlite.db'

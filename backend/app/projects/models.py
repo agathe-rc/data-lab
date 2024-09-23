@@ -3,10 +3,6 @@ from sqlalchemy.orm import relationship, declarative_base
 
 
 Base = declarative_base()
-# SQLAlchemy object-relational configuration
-# involves the combination of Table, mapper(),
-# and class objects to define a mapped class.
-# declarative allows all three to be expressed at once within the class declaration
 
 
 class Cohort(Base):
@@ -33,7 +29,9 @@ class Project(Base):
     name = Column(String)
     cohort_id = Column(Integer, ForeignKey("cohorts.id"))
     cohort = relationship("Cohort", back_populates="projects")
-    partners = relationship("PartnerInstitution", secondary="project_partnership")
+    partners = relationship(
+        "PartnerInstitution", secondary="project_partnership"
+    )
 
 
 class ProjectPartnership(Base):

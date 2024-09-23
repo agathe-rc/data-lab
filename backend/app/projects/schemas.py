@@ -1,5 +1,4 @@
 from typing import List
-
 from pydantic import BaseModel, ConfigDict
 
 
@@ -15,8 +14,7 @@ class PartnerInstitution(BaseModel):
 class ProjectBase(BaseModel):
     name: str
     cohort: Cohort
-    partners: List[PartnerInstitution] = []  # Why List instead of list
-    # main_author: Optional[Author] = None could be related to auth
+    partners: List[PartnerInstitution] = []
 
 
 class Project(ProjectBase):
