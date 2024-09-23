@@ -1,0 +1,9 @@
+fastapi==0.115.0
+uvicorn==0.30.6
+faker==28.4.1
+SQLAlchemy==2.0.35
+aiosqlite
+pytest
+pytest-asyncio
+pytest-cov
+httpx

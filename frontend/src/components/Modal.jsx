@@ -5,7 +5,6 @@ import { Modal, Box, TextField, Typography, Button } from "@mui/material";
 
 import { createProject } from "../api";
 
-
 const style = {
     position: "absolute",
     top: "50%",
@@ -45,12 +44,12 @@ export function DataModal({ cohort, isOpen, setOpenModal }) {
 
 export function ProjectModal({ isOpen, setOpenModal }) {
     const [form, setForm] = useState({
-        "name": "",
-        "cohort": {
-            "patients": 0,
-            "average_age": 0
+        name: "",
+        cohort: {
+            patients: 0,
+            average_age: 0,
         },
-        "partners": []
+        partners: [],
     });
 
     const handleSubmit = async (e) => {
@@ -61,68 +60,76 @@ export function ProjectModal({ isOpen, setOpenModal }) {
         <React.Fragment>
             <Modal open={isOpen} onClose={() => setOpenModal(false)}>
                 <Box sx={style}>
-                <form onSubmit={handleSubmit}>
-                    <TextField
-                        style={{ width: "200px", margin: "5px" }}
-                        type="text"
-                        label="Nom du projet"
-                        variant="outlined"
-                        onChange={e => {
-                            setForm((form) => ({
-                              ...form,
-                              name: e.target.value
-                            }));
-                          }}
-                    />
-                    <br />
-                    <TextField
-                        style={{ width: "200px", margin: "5px" }}
-                        type="number"
-                        label="Nombre de patients"
-                        variant="outlined"
-                        onChange={e => {
-                            setForm((form) => ({
-                              ...form,
-                              cohort: {...form.cohort, patients: parseInt(e.target.value)}
-                            }));
-                        }}
-                    />
-                    <br />
-                    <TextField
-                        style={{ width: "200px", margin: "5px" }}
-                        type="number"
-                        label="Âge moyen"
-                        variant="outlined"
-                        onChange={e => {
-                            setForm((form) => ({
-                              ...form,
-                              cohort: {...form.cohort, average_age: parseInt(e.target.value)}
-                            }));
-                        }}
-                    />
-                    <br />
-                    <TextField
-                        style={{ width: "200px", margin: "5px" }}
-                        type="integer"
-                        label="Établissements partenaires (séparés par des virgules)"
-                        variant="outlined"
-                        onChange={e => {
-                            setForm((form) => ({
-                              ...form,
-                              partners: e.target.value.split(',').map(str => ({ name: str }))
-                            }));
-                        }}
-                    />
-                    <br />
-                    <Button 
-                        type="submit"
-                        variant="contained"
-                        color="primary"
-                        style={{ width: "80px", margin: "5px" }}
-                    >
-                        Créer
-                    </Button>
-                </form>
+                    <form onSubmit={handleSubmit}>
+                        <TextField
+                            style={{ width: "200px", margin: "5px" }}
+                            type="text"
+                            label="Nom du projet"
+                            variant="outlined"
+                            onChange={(e) => {
+                                setForm((form) => ({
+                                    ...form,
+                                    name: e.target.value,
+                                }));
+                            }}
+                        />
+                        <br />
+                        <TextField
+                            style={{ width: "200px", margin: "5px" }}
+                            type="number"
+                            label="Nombre de patients"
+                            variant="outlined"
+                            onChange={(e) => {
+                                setForm((form) => ({
+                                    ...form,
+                                    cohort: {
+                                        ...form.cohort,
+                                        patients: parseInt(e.target.value),
+                                    },
+                                }));
+                            }}
+                        />
+                        <br />
+                        <TextField
+                            style={{ width: "200px", margin: "5px" }}
+                            type="number"
+                            label="Âge moyen"
+                            variant="outlined"
+                            onChange={(e) => {
+                                setForm((form) => ({
+                                    ...form,
+                                    cohort: {
+                                        ...form.cohort,
+                                        average_age: parseInt(e.target.value),
+                                    },
+                                }));
+                            }}
+                        />
+                        <br />
+                        <TextField
+                            style={{ width: "200px", margin: "5px" }}
+                            type="integer"
+                            label="Établissements partenaires (séparés par des virgules)"
+                            variant="outlined"
+                            onChange={(e) => {
+                                setForm((form) => ({
+                                    ...form,
+                                    partners: e.target.value
+                                        .split(",")
+                                        .map((str) => ({ name: str })),
+                                }));
+                            }}
+                        />
+                        <br />
+                        <Button
+                            type="submit"
+                            variant="contained"
+                            color="primary"
+                            style={{ width: "80px", margin: "5px" }}
+                        >
+                            Créer
+                        </Button>
+                    </form>
                 </Box>
             </Modal>
         </React.Fragment>

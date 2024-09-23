@@ -3,13 +3,19 @@ import "./App.css";
 import { useEffect, useState } from "react";
 import * as React from "react";
 
-import { AppBar, Box, Toolbar, Typography, Grid2 as Grid, Button } from "@mui/material";
+import {
+    AppBar,
+    Box,
+    Toolbar,
+    Typography,
+    Grid2 as Grid,
+    Button,
+} from "@mui/material";
 import { BiotechRounded as BiotechRoundedIcon } from "@mui/icons-material";
 
 import ProjectCard from "./components/ProjectCard";
 import { ProjectModal } from "./components/Modal";
 import { getProjects } from "./api";
-
 
 function App() {
     const [projects, setProjects] = useState([]);
@@ -39,17 +45,27 @@ function App() {
             </header>
 
             <React.Fragment>
-              <Grid container display="flex" alignItems="center" sx={{ margin: "20px" }}>
-                <Button
-                    onClick={() => {setOpenCreationModal(true)}}
-                    size="large"
-                    color="primary"
-                    variant="contained"
+                <Grid
+                    container
+                    display="flex"
+                    alignItems="center"
+                    sx={{ margin: "20px" }}
                 >
-                  Créer un nouveau projet
-                </Button>
-                <ProjectModal isOpen={isCreationModalOpen} setOpenModal={setOpenCreationModal}/>
-              </Grid>
+                    <Button
+                        onClick={() => {
+                            setOpenCreationModal(true);
+                        }}
+                        size="large"
+                        color="primary"
+                        variant="contained"
+                    >
+                        Créer un nouveau projet
+                    </Button>
+                    <ProjectModal
+                        isOpen={isCreationModalOpen}
+                        setOpenModal={setOpenCreationModal}
+                    />
+                </Grid>
                 <Grid
                     container
                     sx={{ margin: "20px" }}

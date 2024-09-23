@@ -1,9 +1,15 @@
 import * as React from "react";
-import { Grid2 as Grid, Card, CardActions, CardContent, Button, Typography } from "@mui/material";
+import {
+    Grid2 as Grid,
+    Card,
+    CardActions,
+    CardContent,
+    Button,
+    Typography,
+} from "@mui/material";
 import { deleteProject } from "../api";
 import ConfirmationDialog from "./SimpleDialog";
 import { DataModal } from "./Modal";
-
 
 export default function ProjectCard({ project }) {
     const [openModal, setOpenModal] = React.useState(false);
@@ -36,7 +42,11 @@ export default function ProjectCard({ project }) {
                         {project.name}
                     </Typography>
                     {project.partners.map((partner, i) => (
-                        <Typography key={i} variant="body2" color="text.secondary">
+                        <Typography
+                            key={i}
+                            variant="body2"
+                            color="text.secondary"
+                        >
                             {partner.name}
                         </Typography>
                     ))}
