@@ -4,6 +4,7 @@ services:
       context: .
     environment:
       - SQLITE_PATH=/sqlite.db
+      - PYTHONPATH=/app
     ports:
       - "8000:80"
     volumes:
