@@ -1,6 +1,5 @@
 __pycache__
 app.egg-info
-sqlite.db
 *.pyc
 .mypy_cache
 .coverage
