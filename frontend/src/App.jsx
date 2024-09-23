@@ -2,20 +2,18 @@ import "./App.css";
 
 import { useEffect, useState } from "react";
 import * as React from "react";
-import CssBaseline from "@mui/material/CssBaseline";
-import { getProjects } from "./api";
 
-import AppBar from "@mui/material/AppBar";
-import Box from "@mui/material/Box";
-import Toolbar from "@mui/material/Toolbar";
-import Typography from "@mui/material/Typography";
-import BiotechRoundedIcon from "@mui/icons-material/BiotechRounded";
-import Grid from "@mui/material/Grid2";
+import { AppBar, Box, Toolbar, Typography, Grid2 as Grid, Button } from "@mui/material";
+import { BiotechRounded as BiotechRoundedIcon } from "@mui/icons-material";
 
 import ProjectCard from "./components/ProjectCard";
+import { ProjectModal } from "./components/Modal";
+import { getProjects } from "./api";
+
 
 function App() {
     const [projects, setProjects] = useState([]);
+    const [isCreationModalOpen, setOpenCreationModal] = useState(false);
 
     useEffect(() => {
         const fetchData = async () => {
@@ -41,7 +39,17 @@ function App() {
             </header>
 
             <React.Fragment>
-                <CssBaseline />
+              <Grid container display="flex" alignItems="center" sx={{ margin: "20px" }}>
+                <Button
+                    onClick={() => {setOpenCreationModal(true)}}
+                    size="large"
+                    color="primary"
+                    variant="contained"
+                >
+                  Créer un nouveau projet
+                </Button>
+                <ProjectModal isOpen={isCreationModalOpen} setOpenModal={setOpenCreationModal}/>
+              </Grid>
                 <Grid
                     container
                     sx={{ margin: "20px" }}
